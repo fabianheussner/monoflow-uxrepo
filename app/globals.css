@@ -1,21 +1,131 @@
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
+/* @tailwind components; */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --white: 255, 255, 255;
+
+  --gray-50: 250, 250, 250;
+  --gray-100: 245, 245, 245;
+  --gray-200: 229, 229, 229;
+  --gray-300: 212, 212, 212;
+  --gray-400: 163, 163, 163;
+  --gray-500: 115, 115, 115;
+  --gray-600: 82, 82, 82;
+  --gray-700: 64, 64, 64;
+  --gray-800: 38, 38, 38;
+  --gray-900: 23, 23, 23;
+  --gray-950: 10, 10, 10;
+
+  --yellow-50: 255, 251, 235;
+  --yellow-100: 254, 243, 199;
+  --yellow-200: 253, 230, 138;
+  --yellow-300: 252, 211, 77;
+  --yellow-400: 251, 191, 36;
+  --yellow-500: 245, 158, 11;
+  --yellow-600: 217, 119, 6;
+  --yellow-700: 180, 83, 9;
+  --yellow-800: 146, 64, 14;
+  --yellow-900: 120, 53, 15;
+  --yellow-950: 69, 26, 3;
+
+  --blue-50: 239, 246, 255;
+  --blue-100: 219, 234, 254;
+  --blue-200: 191, 219, 254;
+  --blue-300: 147, 197, 253;
+  --blue-400: 96, 165, 250;
+  --blue-500: 59, 130, 246;
+  --blue-600: 37, 99, 235;
+  --blue-700: 29, 78, 216;
+  --blue-800: 30, 64, 175;
+  --blue-900: 30, 58, 138;
+  --blue-950: 23, 37, 84;
+
+  --primary: var(--gray-950);
+  --primary-hover: var(--gray-800);
+  --on-primary: var(--white);
+  --tonal: var(--gray-100);
+  --on-tonal: var(--gray-950);
+
+  --text: var(--gray-950);
+  --text-variant: var(--gray-500);
+  --text-inverse: var(--white);
+  --text-variant-inverse: var(--gray-400);
+  --text-on-image: var(--white);
+  --text-on-image-inverse: var(--gray-950);
+
+  --border: var(--gray-200);
+  --background: var(--white);
+  --background-variant: var(--gray-50);
+  --background-inverse: var(--gray-950);
+  --surface: var(--white);
+  --surface-variant: var(--gray-100);
+
+  --surface-warning: var(--yellow-100);
+  --on-surface-warning: var(--gray-950);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary: var(--white);
+    --primary-hover: var(--gray-100);
+    --on-primary: var(--gray-950);
+    --tonal: var(--gray-900);
+    --on-tonal: var(--white);
+
+    --text: var(--white);
+    --text-variant: var(--gray-400);
+    --text-inverse: var(--gray-950);
+    --text-variant-inverse: var(--gray-600);
+    --text-on-image: var(--white);
+    --text-on-image-inverse: var(--gray-950);
+
+    --border: var(--gray-800);
+    --background: var(--gray-900);
+    --background-variant: var(--gray-950);
+    --background-inverse: var(--white);
+    --surface: var(--gray-900);
+    --surface-variant: var(--gray-800);
+
+    --surface-warning: var(--yellow-400);
+    --on-surface-warning: var(--white);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* TEXT STYLES START */
+.display {
+  @apply text-6xl lg:text-8xl leading-none tracking-tighter font-medium;
+}
+.headline-xl {
+  @apply text-5xl lg:text-7xl leading-none tracking-tighter font-medium;
+}
+.headline-lg {
+  @apply text-4xl lg:text-5xl leading-10 tracking-tight font-medium;
+}
+.headline-md {
+  @apply text-2xl lg:text-3xl leading-7 tracking-tight font-medium;
+}
+.headline-sm {
+  @apply text-xl lg:text-2xl leading-6 tracking-tight font-medium;
+}
+.body-lg {
+  @apply text-lg leading-7;
+}
+.body-lg-bold {
+  @apply text-lg leading-7 font-semibold;
+}
+.body-md {
+  @apply text-base leading-6;
+}
+.body-md-bold {
+  @apply text-base leading-6 font-semibold;
+}
+.body-sm {
+  @apply text-sm leading-5;
+}
+.body-sm-bold {
+  @apply text-sm leading-5 font-semibold;
+}
+.caption {
+  @apply text-xs leading-4;
 }

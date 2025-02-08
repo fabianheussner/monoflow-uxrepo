@@ -1,101 +1,163 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import {
+  Drawer,
+  Card,
+  Header,
+  Grid,
+  SectionHeader,
+  Wrapper,
+  Jumbotron,
+  Button,
+  Text,
+} from "@components";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  const handleCardClick = () => {
+    setIsDrawerOpen(true); // Open the drawer when a card is clicked
+  };
+
+  const handleCloseDrawer = () => {
+    setIsDrawerOpen(false); // Close the drawer when requested
+  };
+
+  return (
+    <div className="font-[family-name:var(--font-geist-sans)]">
+      <main className="">
+        <Wrapper border="Full" className="rounded-t-lg overflow-hidden">
+          <Header
+            title="Deliver outstanding user experiences"
+            // subtitle="Monoflow UX Repo"
+            subtitle="Let's grow together and"
+            // copyContent="monoflow.studio"
+          />
+        </Wrapper>
+        <Wrapper border="SideBottom" indent="Default" className="pt-10 pb-20">
+          <SectionHeader title="Recently added" level="Main" hasTrailing />
+          <Grid columns="EqualThree">
+            <div className="col-span-2">
+              <Card
+                title="Feature Canvas"
+                category="Method"
+                date="Feb 2, 2025"
+                duration="8 min"
+                description="Test description"
+                icon="PanelsRightBottom"
+                onClick={handleCardClick}
+                variant="image"
+                // image="/assets/img/monoflow-value-proposition-painting.webp"
+                image="/assets/img/test-2.jpg"
+                className="col-span-1 h-full"
+              />
+            </div>
+            <div className="col-span-1 flex flex-col gap-4">
+              <Card
+                title="Value Proposition"
+                category="Framework"
+                date="Jan 15, 2025"
+                duration="6 min"
+                description="Test description"
+                icon="Circle"
+                onClick={handleCardClick}
+              />
+              <Card
+                title="A/B Testing"
+                category="Method"
+                date="Dec 12, 2024"
+                duration="10 min"
+                description="Test description"
+                icon="Shapes"
+                // variant="dark"
+                onClick={handleCardClick}
+              />
+            </div>
+          </Grid>
+        </Wrapper>
+        <Wrapper
+          border="SideBottom"
+          indent="Default"
+          className="bg-background py-40"
+        >
+          <Grid columns="EqualSix">
+            <div className="col-span-2 col-start-2 flex flex-col">
+              <Text size="BodyLg" className="mb-4">
+                About monoflow
+              </Text>
+              <Text size="HeadlineMd" className="mb-4">
+                Monoflow is a passion project, collecting UX methods and
+                insights I gained.
+              </Text>
+              <Text size="BodyLg" color="Subdued">
+                It gives me the opportunity to grow as a designer consistently
+                besides my daily work, manifest insights, and write some code.
+              </Text>
+              {/* <Button
+                variant="tonal"
+                size="small"
+                trailingIcon="ArrowUpRight"
+                className=""
+              >
+                Discover my work
+              </Button> */}
+            </div>
+            <div className="col-span-1 col-start-5">
+              <img
+                src="/assets/img/fabian-heussner.png"
+                className="rounded-md mb-2"
+              />
+              <Text size="Caption">And yes, that's me…</Text>
+            </div>
+          </Grid>
+        </Wrapper>
+        <Wrapper border="Side" indent="Default" className="pt-10 pb-20">
+          <SectionHeader title="Insights and notes" level="Main" hasTrailing />
+          <Grid columns="EqualThree">
+            <Card
+              title="User Interviews"
+              category="Method"
+              date="Feb 2, 2025"
+              duration="8 min"
+              description="Test description"
+              icon="Mic"
+              onClick={handleCardClick}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+            <Card
+              title="Card Sorting"
+              category="Method"
+              date="Jan 15, 2025"
+              duration="6 min"
+              description="Test description"
+              icon="Layers"
+              variant="image"
+              image="/assets/img/monoflow-value-proposition-painting.webp"
+              onClick={handleCardClick}
+            />
+            <Card
+              title="Market Research"
+              category="Method"
+              date="Jan 15, 2025"
+              duration="6 min"
+              description="Test description"
+              icon="Users"
+              // variant="dark"
+              variant="image"
+              image="/assets/img/test-7.jpg"
+              onClick={handleCardClick}
+            />
+          </Grid>
+        </Wrapper>
+        {isDrawerOpen && <Drawer closeDrawer={handleCloseDrawer} />}
+        <Wrapper border="Full">
+          <Jumbotron
+            title="Jumbotron test title lorem ipsum"
+            action="Get started"
+            actionIcon="ExternalLink"
+          />
+        </Wrapper>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
